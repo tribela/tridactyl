@@ -1,4 +1,4 @@
-TODO: get litcoffee highlighting off @cmcaine
+We should specify the function signature here, with types and do all the simple input validation in one place, maybe?
 
     commands = {
         "setTab": tridactyl.func.setTab
