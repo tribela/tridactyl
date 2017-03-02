@@ -45,9 +45,9 @@ I was very confused about how the `await` shims could work, so I had TypeScript 
 For now, we'll just keep parserController synchronous and use this generator syntax.
 
     ParserController = ->
-        # Loop forever.
+        # Loop forever
         loop
-            # Receive keys until the mode parser tells us to handle an ex_str.
+            # Receive keys until the mode parser tells us to handle an ex_str
             loop
                 keys = []
                 ex_str = ""
@@ -67,23 +67,23 @@ For now, we'll just keep parserController synchronous and use this generator syn
                     ex_str = response.ex_str
                     break
 
-            # Parse the ex_str into a function and command to run.
+            # Parse the ex_str into a function and command to run
             [func, args] = ex_str_parser(ex_str)
 
-            # Execute the ex_str.
+            # Execute the ex_str
             func(args...)
             
     # Create the generator object
     parserController = ParserController()
 
-    # Run the parserController until the first yield.
+    # Run the parserController until the first yield
     parserController.next()
 
     # parserController.next needs isn't bound to parserController, so needs to be made indirect:
     feeder = (ev) ->
         parserController.next(ev)
 
-    # Feed the parserController events.
+    # Feed the parserController events
     document.addEventListener("keyDown", feeder)
 
 Fun digression: I first encountered the generator/yield syntax in Python2 where it was not asynchronous and only allows data transfer from the yielder to the caller of next(). It took me an embarassingly long time to get my head around the new semantics when I saw it again in python3's async library and the data was moving in both directions.
