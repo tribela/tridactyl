@@ -11,15 +11,12 @@ The following is an attempt at namespacing in CoffeeScript. The `__init__` funct
             browser.tabs.update(id,{active:true})
 
         @tabinc = (inc) =>
-            try
-                window = await browser.windows.getCurrent()
-                tabs = await browser.tabs.query({windowId:window.id})
-                activeTab = (tab for tab in tabs when tab.active)[0]
-                desiredIndex = (activeTab.index + inc).mod(tabs.length)
-                desiredTab = (tab for tab in tabs when tab.index == desiredIndex)[0]
-                @tabfocus(desiredTab.id)
-            catch error
-                console.error(error)
+            window = await browser.windows.getCurrent()
+            tabs = await browser.tabs.query({windowId:window.id})
+            activeTab = (tab for tab in tabs when tab.active)[0]
+            desiredIndex = (activeTab.index + inc).mod(tabs.length)
+            desiredTab = (tab for tab in tabs when tab.index == desiredIndex)[0]
+            @tabfocus(desiredTab.id)
 
 ## First attempt at message parsing wrapper to avoid duplication of code
 
