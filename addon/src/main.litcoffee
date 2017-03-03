@@ -22,6 +22,11 @@ sign as the dividend, in python, the divisor.
     Number.prototype.mod = (n) ->
         Math.abs(this % n)
 
+Listen for events from the content script:
+
+    browser.runtime.onConnect.addListener(
+        tridactyl.messaging.backgroundOnConnectHandler)
+
 Let the console know we got home safely.
 
     console.log("Loaded Tridactyl")

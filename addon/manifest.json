@@ -5,7 +5,7 @@
   "version": "1.0",
 
   "background" : {
-    "scripts": ["header.js", "commands.js", "internals.js", "parsers.js", "main.js"]
+    "scripts": ["header.js", "commands.js", "messaging.js", "internals.js", "parsers.js", "main.js"]
   },
 
   "content_scripts": [
