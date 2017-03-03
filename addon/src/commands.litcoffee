@@ -4,8 +4,6 @@ This module contains functions that implement each ex command in tridactyl. The 
 
 The following is an attempt at namespacing in CoffeeScript. The `__init__` function defines all the functions in the module and allocates them as this.blah. The fat arrows, `=>`, binds the value of `this` whenever the function is called to whatever it was at the time of the function's creation, which, in this case is `tridactyl.commands`. So functions in the same module can call each other with `@funcname` safely.
 
-    tridactyl = {}
-
     tridactyl.commands = {}
     tridactyl.commands.__init__ = ->
 
