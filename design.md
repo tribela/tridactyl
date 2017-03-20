@@ -16,6 +16,7 @@ Other objectives:
 * be fast - the whole point of a keyboard interface is to be more efficient, don't compromise that with slow code
 * don't crash - we're the new UI and we shouldn't crash
 * be maintainable - code should be well documented, reasoned about and tested.
+* maybe: mobile support? Firefox for Android keyboard support is dreadful (doesn't even have Ctrl+L etc)
 
 Non-objectives for v1:
 

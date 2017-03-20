@@ -45,3 +45,8 @@
             when config.forward then historyHandler({number:1})
 
     document.addEventListener("keydown", keyHandler)
+
+Each content script needs to call something like this, but there are *issues*. See [messaging](messaging.litcoffee).
+
+    # key_port = tridactyl.messaging.contentKeyEventTransmitter()
+    # document.addEventListener("keydown", key_port.postMessage)
