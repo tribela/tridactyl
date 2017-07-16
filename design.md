@@ -202,3 +202,8 @@ Some actions have their own interactive mini-mode:
 
 * hints
 * searching
+
+## Porting
+
+It could be possible to use embedded web extensions to port people from Vimperator.
+https://blog.mozilla.org/addons/2017/01/20/migrating-to-webextensions-port-your-stored-data/
