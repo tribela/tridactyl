@@ -31,7 +31,7 @@ import {MsgSafeKeyboardEvent} from './msgsafe'
 export function parser(keys: MsgSafeKeyboardEvent[]) {
     console.log("hintparser", keys)
     const key = keys[0].key
-    if (key === 'Escape') {
+    if (key === 'Escape' || (key === '[' && keys[0].ctrlKey === true)) {
         reset()
     } else if (['Enter', ' '].includes(key)) {
         selectFocusedHint()

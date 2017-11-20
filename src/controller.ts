@@ -40,7 +40,7 @@ function *ParserController () {
                 // yet. So drop them. This also drops all modifier keys.
                 // When we put in handling for other special keys, remember
                 // to continue to ban modifiers.
-                if (state.mode === 'normal' && (keypress.length > 1 || keyevent.ctrlKey || keyevent.altKey || keyevent.metaKey)) {
+                if (state.mode === 'normal' && (keypress.length > 1 || (keyevent.ctrlKey && keyevent.key != "[") || keyevent.altKey || keyevent.metaKey)) {
                     continue
                 }
 

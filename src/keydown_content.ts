@@ -46,7 +46,7 @@ function TerribleModeSpecificSuppression(ke: KeyboardEvent) {
             // StartsWith happens to work for our maps so far. Obviously won't in the future.
             /* if (Object.getOwnPropertyNames(nmaps).find((map) => map.startsWith(ke.key))) { */
 
-            if (! ke.ctrlKey && ! ke.metaKey && ! ke.altKey
+            if (! (ke.ctrlKey && ke.key != "[") && ! ke.metaKey && ! ke.altKey
                 && ke.key.length === 1
                 && ! normalmodewhitelist.includes(ke.key)
             ) {
