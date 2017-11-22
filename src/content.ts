@@ -22,11 +22,13 @@ import * as messaging from './messaging'
 import * as msgsafe from './msgsafe'
 import state from './state'
 import * as webext from './lib/webext'
+import * as editors from './editors'
 
 (window as any).tri = Object.assign(Object.create(null), {
     browserBg: webext.browserBg,
     commandline_content,
     convert,
+    editors,
     dom,
     excmds,
     hinting_content,

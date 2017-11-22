@@ -856,4 +856,12 @@ export async function bmark(url?: string, title = ""){
     if (dupbmarks.length == 0 ) {browser.bookmarks.create({url, title})}
 }
 
+//#content_helper
+import * as editors from "./editors"
+//#content
+export function codemirrorhere(){
+    console.log("Code mirroring now")
+    editors.codemirrorme()
+}
+
 // vim: tabstop=4 shiftwidth=4 expandtab

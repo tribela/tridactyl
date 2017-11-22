@@ -18,13 +18,17 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        // added CSS here as a guess
+        extensions: [".ts", ".tsx", ".js", ".json", ".css"]
     },
 
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+
+            // as suggested by https://stackoverflow.com/questions/33257497/codemirror-does-not-working-with-react-webpack
+            { test: /\.css$/, loader: ['style-loader','css-loader'] },
 
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
