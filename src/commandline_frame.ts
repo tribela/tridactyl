@@ -42,7 +42,11 @@ clInput.addEventListener("keydown", function (keyevent) {
         // should probably just defer to another library
         case "c":
         case "[":
-            if (keyevent.ctrlKey) hide_and_clear()
+            if (keyevent.ctrlKey) {
+                keyevent.preventDefault()
+                keyevent.stopPropagation()
+                hide_and_clear()
+            }
             break
 
         case "f":
