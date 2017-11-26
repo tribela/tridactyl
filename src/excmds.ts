@@ -945,4 +945,13 @@ export async function bmark(url?: string, title = ""){
     if (dupbmarks.length == 0 ) {browser.bookmarks.create({url, title})}
 }
 
+//#background_helper
+import * as request from './requests'
+
+//#background
+export async function completeme(...fragmentarr: string[]){
+    let fragment = fragmentarr.join(" ") 
+    console.log(JSON.parse(await request.getdata("http://suggestqueries.google.com/complete/search?client=firefox&q="+fragment))[1])
+}
+
 // vim: tabstop=4 shiftwidth=4 expandtab
