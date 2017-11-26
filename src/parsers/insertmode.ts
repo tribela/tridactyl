@@ -8,5 +8,9 @@ export function parser(keys){
             return {keys: [], ex_str: 'unfocus'}
         }
     }
+    else if (keys[0].ctrlKey && (keys[0].key == "e")){
+        console.log("I GOT CALLED")
+        return {keys: [], ex_str: 'acehere'}
+    }
     return {keys: [], ex_str: undefined}
 }
