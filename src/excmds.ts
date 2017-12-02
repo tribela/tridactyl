@@ -1220,8 +1220,17 @@ import * as hinting from './hinting_background'
         "hintchars": "hjklasdfgyuiopqwertnmzxcvb"
         "hintorder": "normal" or "reverse"
 */
+
+////#background
+//export function rapidhint(option?: string, selectors="") {
+//    let notdone = true
+//    while(notdone){
+//        notdone = hint(option, selectors)
+//    }
+//}
+
 //#background
-export function hint(option?: string, selectors="") {
+export async function hint(option?: string, selectors="") {
     if (option === '-b') hinting.hintPageOpenInBackground()
     else if (option === "-y") hinting.hintPageYank()
     else if (option === "-p") hinting.hintPageTextYank()
@@ -1231,7 +1240,14 @@ export function hint(option?: string, selectors="") {
     else if (option === "-#") hinting.hintPageAnchorYank()
     else if (option === "-c") hinting.hintPageSimple(selectors)
     else if (option === "-r") hinting.hintRead()
-    else hinting.hintPageSimple()
+    else {
+        console.log("findme")
+        await hinting.hintPageSimple()
+        // this doesn't appear
+        console.log("done")
+    }
+    // nor does this
+    console.log("leaving hint")
 }
 
 

@@ -318,6 +318,7 @@ function hintPageSimple(selectors=HINTTAGS_selectors) {
     hintPage(hintables(selectors), hint=>{
         simulateClick(hint.target)
     })
+    return true;
 }
 
 function hintPageTextYank() {
