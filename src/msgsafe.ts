@@ -114,7 +114,7 @@ export interface MsgSafeNode {
     readonly prefix?: string
     readonly localName: string
     readonly baseURI: string
-    readonly textContent: string
+    // readonly textContent: string
 
     // w3 Element interface
     readonly tagName?: string
@@ -143,7 +143,7 @@ export function Node(node: HTMLElement): MsgSafeNode {
         'prefix',
         'localName',
         'baseURI',
-        'textContent',
+        // 'textContent',
 
         // w3 Element interface
         'tagName',
