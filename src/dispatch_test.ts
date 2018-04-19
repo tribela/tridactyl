@@ -21,3 +21,17 @@ function sharedFunction() {
     // Can be exported or whatever.
     return 42
 }
+
+export class Example {
+    @d.bg
+    async foo(arg1, arg2) {
+        return arg1 * arg2
+    }
+
+    @d.cn
+    async bar(arg1, arg2) {
+        return arg1 + arg2
+    }
+}
+
+export let e = new Example()

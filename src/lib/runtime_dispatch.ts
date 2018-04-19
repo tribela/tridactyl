@@ -6,6 +6,10 @@ import {
     messageActiveTab,
 } from "../messaging"
 
+function funcDec(func) {
+    return (proto, name, propDesc) => (propDesc.value = func(propDesc.value))
+}
+
 /** Runtime function dispatcher.
 
     Give any function that you want to be available in both foreground and
@@ -41,12 +45,19 @@ export default class Dispatcher {
         addListener(modName, attributeCaller(this.ourFuncs))
     }
 
-    background<T extends Function>(func: T): T {
+    background = <T extends Function>(func: T): T => {
         return this.dispatch(undefined, func)
     }
 
-    content<T extends Function>(func: T): T {
+    content = <T extends Function>(func: T): T => {
         return this.dispatch(func, undefined)
+    }
+
+    // Decorator versions of the above
+    bg = funcDec(this.background)
+
+    cn = (proto, name, propDesc) => {
+        propDesc.value = this.content(propDesc.value)
     }
 
     dispatch<T extends Function>(contentFun: T, backgroundFun: T): T {
