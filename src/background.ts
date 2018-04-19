@@ -30,6 +30,8 @@ import * as keyseq from "./keyseq"
 import * as msgsafe from "./msgsafe"
 import state from "./state"
 import * as webext from "./lib/webext"
+import * as DT from "./dispatch_test"
+import * as RD from "./lib/runtime_dispatch"
 ;(window as any).tri = Object.assign(Object.create(null), {
     messaging,
     excmds,
@@ -49,4 +51,6 @@ import * as webext from "./lib/webext"
     state,
     webext,
     l: prom => prom.then(console.log).catch(console.error),
+    DT,
+    RD,
 })
