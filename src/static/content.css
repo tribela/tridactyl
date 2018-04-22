@@ -11,3 +11,8 @@
     min-height: 0 !important;
     max-height: none !important;
 }
+
+.TridactylStatusIndicator {
+    position: fixed !important;
+    bottom: 0 !important;
+}

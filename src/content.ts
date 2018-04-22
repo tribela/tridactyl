@@ -61,3 +61,24 @@ if (
 ) {
     config.getAsync("newtab").then(newtab => newtab && excmds.open(newtab))
 }
+
+// Really bad status indicator
+let statusIndicator = document.createElement('span')
+statusIndicator.className = 'cleanslate TridactylStatusIndicator'
+window.addEventListener('DOMContentLoaded', () => {
+    statusIndicator.textContent = state.mode || 'normal'
+    document.body.appendChild(statusIndicator)
+})
+
+browser.storage.onChanged.addListener((changes, areaname) => {
+    if (areaname === "local" && "state" in changes) {
+        let mode = changes.state.newValue.mode
+        if (dom.isTextEditable(document.activeElement) && mode !== "input") {
+            statusIndicator.textContent = "insert"
+        } else if (mode === "insert" && !dom.isTextEditable(document.activeElement)) {
+            statusIndicator.textContent = "normal"
+        } else {
+            statusIndicator.textContent = mode
+        }
+    }
+})
