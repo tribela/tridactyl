@@ -1,5 +1,15 @@
 # Tridactyl changelogs
 
+## Release 1.9.8
+
+- Make error reporting to command line less fussy
+- Fix error reporting loop with `noiframeon`
+
+## release 1.9.7
+
+- Load iframe more lazily to fix issues with some sites (ServiceNow, some image hosts, etc)
+- Add setting `noiframeon` for websites that don't catch CSP errors when they touch the injected iframe (e.g. ServiceNow)
+
 ## Release 1.9.6
 
 - Scrolling improvements
