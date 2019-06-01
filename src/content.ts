@@ -47,6 +47,7 @@ import * as ContentController from "@src/content/controller_content"
 import { getAllDocumentFrames } from "@src/lib/dom"
 function listen(elem) {
     elem.removeEventListener("keydown", ContentController.acceptKey, true)
+    elem.removeEventListener("keyup", ContentController.acceptKey, true)
     elem.removeEventListener(
         "keypress",
         ContentController.canceller.cancelKeyPress,
@@ -58,6 +59,7 @@ function listen(elem) {
         true,
     )
     elem.addEventListener("keydown", ContentController.acceptKey, true)
+    elem.addEventListener("keyup", ContentController.acceptKey, true)
     elem.addEventListener(
         "keypress",
         ContentController.canceller.cancelKeyPress,
