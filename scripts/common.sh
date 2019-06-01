@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PATH=$(yarn bin):"$PATH"
+
 # Accepts no arguments
 # Returns git-add'ed files as a list of filenames separated by a newline character
 cachedTSLintFiles() {
@@ -32,15 +34,13 @@ prettierUgly() {
 tslintUgly() {
     local acc=""
     local IFS=$'\n'
-    local tmpdir
-    tmpdir=$(mktemp -d "tslint.XXXXXXXXX")
     for jsfile in "$@"; do
-        tmpfile="$tmpdir/$jsfile"
-        mkdir -p "$(dirname "$tmpfile")"
+        local tmpfile
+        tmpfile=$(mktemp "$jsfile.XXXXXX.ts")
         staged "$jsfile" > "$tmpfile"
-        tslint -q "$tmpfile" 2>/dev/null || acc="$jsfile"$'\n'"$acc"
+        tslint -q "$tmpfile" --project . || acc="$jsfile"$'\n'"$acc"
+        rm "$tmpfile"
     done
-    rm -rf "$tmpdir"
     echo "$acc"
 }
 

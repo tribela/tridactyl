@@ -266,7 +266,7 @@ export function hintPage(
     hintableElements: Element[],
     onSelect: HintSelectedCallback,
     resolve = () => {},
-    reject = () => {},
+    reject = () => undefined,
     rapid = false,
 ) {
     const buildHints: HintBuilder = defaultHintBuilder()
@@ -279,10 +279,10 @@ export function hintPage(
             modeState.cleanUpHints()
             hint.result = onSelect(hint.target)
             modeState.selectedHints.push(hint)
-            reset()
+            reset(      )
         })
     } else {
-        buildHints(hintableElements, hint => {
+          buildHints(hintableElements, hint => {
             hint.result = onSelect(hint.target)
             modeState.selectedHints.push(hint)
         })
